@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import MovieCard from './MovieCard'
 import SearchIcon from './search.svg'
 import './App.css';
 
@@ -7,27 +8,25 @@ const API_URL = 'http://www.omdbapi.com?apikey=a46217e7';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const searchText = document.querySelector(".search input");
-  searchText.addEventListener("change", ()=>{console.log(123);}
-  );
+  const [movies, setMovies] = useState([]);
+
+  useEffect(()=>{
+    searchMovies(searchTerm);
+  },[]);
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-
+    setMovies(data.search);
   }
-
-  useEffect(()=>{
-    searchMovies('Super');
-  },[]);
 
   return (
       <div className="app">
         <h1>Movie Search</h1>
-
         <div className="search">
           <input 
-            value={searchTerm}
+            defaultValue={searchTerm}
+            onChange={(e) => { setSearchTerm(e.target.value); } }
             placeholder="Search for movies"
           />
         <img
@@ -36,6 +35,18 @@ const App = () => {
           onClick={() => searchMovies(searchTerm)}
         />
         </div>
+
+        { movies?.length > 0 ? (
+          <div className="container">
+            {movies.map((movie)=>(
+              <MovieCard movie={movie} />
+            ))}
+          </div>
+        ) : (
+          <div className="empty">
+            <h2>No movies found</h2>
+          </div>
+        )}
       </div>
   );
 }
