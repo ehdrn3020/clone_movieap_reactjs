@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/clone_movieap_reactjs/static/css/main.334bdeb1.css",
+    "main.js": "/clone_movieap_reactjs/static/js/main.83144989.js",
+    "index.html": "/clone_movieap_reactjs/index.html",
+    "static/media/search.svg": "/clone_movieap_reactjs/static/media/search.db964b809d21320fb503cb05f4dc8a09.svg",
+    "main.334bdeb1.css.map": "/clone_movieap_reactjs/static/css/main.334bdeb1.css.map",
+    "main.83144989.js.map": "/clone_movieap_reactjs/static/js/main.83144989.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.334bdeb1.css",
+    "static/js/main.83144989.js"
+  ]
+}
