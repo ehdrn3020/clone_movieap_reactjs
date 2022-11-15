@@ -7,7 +7,7 @@ import './App.css';
 const API_URL = 'http://www.omdbapi.com?apikey=a46217e7';
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("spider");
   const [movies, setMovies] = useState([]);
 
   useEffect(()=>{
